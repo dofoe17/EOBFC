@@ -9,7 +9,8 @@ st.title('EOBFC Fines 2025-26 ⚽💰')
 st.divider()
 
 #Define filepath
-filepath = pd.ExcelFile(r'C:\Users\dofoe.boundarycreek\Documents\Python Output\EOBFC\EOBFC fines list 25_26.xlsx')
+#filepath = pd.ExcelFile(r'C:\Users\dofoe.boundarycreek\Documents\Python Output\EOBFC\EOBFC fines list 25_26.xlsx')
+filepath = pd.ExcelFile('data/EOBFC fines list 25_26.xlsx')
 
 #List of sheet names
 sheet_names = ['GW1', 'GW2', 'GW3', 'GW4', 'GW5']
