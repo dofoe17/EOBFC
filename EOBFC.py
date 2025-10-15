@@ -1,26 +1,34 @@
 import pandas as pd 
 import plotly.graph_objects as go
 import streamlit as st
+import matplotlib.pyplot as plt 
 
-
+#Initiate app 
+#**********************************************************************************************************************************************
 st.set_page_config(page_title='EOBFC Fines', page_icon='⚽', layout='wide')
 st.title('EOBFC Fines 2025-26 ⚽💰')
 
 st.divider()
 
 #Define filepath
+#**********************************************************************************************************************************************
 #filepath = pd.ExcelFile(r'C:\Users\dofoe.boundarycreek\Documents\Python Output\EOBFC\EOBFC fines list 25_26.xlsx')
 filepath = pd.ExcelFile('data/EOBFC fines list 25_26.xlsx')
 
 #List of sheet names
 sheet_names = ['GW1', 'GW2', 'GW3', 'GW4', 'GW5']
 
+
+#Clean file data
+#**********************************************************************************************************************************************
 def clean_data(df): 
     df = df.iloc[0:20, ].drop('Amount', axis='columns')
     df = df.set_index('Fine')
     df = df.dropna(how='all').dropna(axis='columns', how='all')
     return df
 
+#Main app page
+#**********************************************************************************************************************************************
 def main(): 
     cleaned_dataframes = {} 
 
@@ -29,10 +37,7 @@ def main():
         cleaned_df = clean_data(df)
         cleaned_dataframes[sheet] = cleaned_df
 
-
     combined_df = pd.concat(cleaned_dataframes.values(), ignore_index=False).groupby('Fine').sum() 
-    #combined_df.loc['Total'] = combined_df.sum()
-
 
     tab1, tab2, tab3, tab4 = st.tabs(['Individual Stats', 'Sorted Table', 'Total Sum by Category', 'Fine Frequency'])
     with tab1:
