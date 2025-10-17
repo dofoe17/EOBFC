@@ -1,7 +1,6 @@
 import pandas as pd 
 import plotly.graph_objects as go
 import streamlit as st
-import matplotlib.pyplot as plt 
 
 #Initiate app 
 #**********************************************************************************************************************************************
@@ -39,16 +38,18 @@ def main():
 
     combined_df = pd.concat(cleaned_dataframes.values(), ignore_index=False).groupby('Fine').sum() 
 
-    tab1, tab2, tab3, tab4 = st.tabs(['Individual Stats', 'Sorted Table', 'Total Sum by Category', 'Fine Frequency'])
+    tab1, tab2, tab3, tab4 = st.tabs(['Individual Stats', 'Sorted Table', 'Total by Category', 'Fine Frequency'])
     with tab1:
         #Add Sidebar 
-        st.sidebar.title('Geezers')
+        #st.sidebar.title('Geezers')
         names_list = combined_df.columns.to_list() 
-        selected_name = st.sidebar.multiselect('Select a Legend!', options=names_list, default=None)
+        selected_name = st.multiselect('Select a Legend!', options=names_list, default=None)
 
-        all_options = st.sidebar.checkbox('Select all options', value=False)
+        all_options = st.checkbox('Select all options', value=False)
         if all_options: 
             selected_name = names_list
+
+        st.divider()
 
         #Filtered data 
         col_header = ['Amount']
