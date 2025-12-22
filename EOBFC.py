@@ -9,10 +9,10 @@ st.title('EOBFC Fines 2025-26 ⚽💰')
 st.divider()
 
 #Define filepath
-#filepath = pd.ExcelFile(r'C:\Users\Computer\OneDrive\Python\EOBFC\EOBFC fines list 25_26.xlsx')
 filepath = pd.ExcelFile('data/EOBFC fines list 25_26.xlsx')
 
-sheet_names = ['GW1', 'GW2', 'GW3', 'GW4', 'GW5']
+sheet_names = ['GW1', 'GW2', 'GW3', 'GW4', 'GW5', 
+               'GW6', 'GW7', 'GW8', 'GW9', 'GW10']
 
 
 #Clean file data
