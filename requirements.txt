@@ -3,4 +3,3 @@ plotly
 streamlit
 openpyxl
 altair<5
-imghdr
