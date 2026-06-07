@@ -12,7 +12,9 @@ st.divider()
 filepath = pd.ExcelFile('data/EOBFC fines list 25_26.xlsx')
 
 sheet_names = ['GW1', 'GW2', 'GW3', 'GW4', 'GW5', 
-               'GW6', 'GW7', 'GW8', 'GW9', 'GW10']
+               'GW6', 'GW7', 'GW8', 'GW9', 'GW10',
+               'GW11', 'GW12', 'GW13', 'GW14', 'GW15',
+               'GW16', 'GW17', 'GW18', 'GW19', 'GW20']
 
 
 #Clean file data
